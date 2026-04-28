@@ -3,435 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nancy | Cloud & DevOps Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>LUMIÈRE | Elevated Food Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
     <style>
-        /* CSS Variables for Modern Dark Theme */
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-glow: #38bdf8;
-            --accent-gradient: linear-gradient(135deg, #38bdf8, #818cf8);
-        }
-
-        /* Global Reset & Typography */
+        /* CSS Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0d0d0d;
+            color: #f5f5f5;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        h1, h2, h3, h4, .logo {
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        @keyframes glowPulse {
-            0% { box-shadow: 0 0 10px rgba(56, 189, 248, 0.2); }
-            50% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.6); }
-            100% { box-shadow: 0 0 10px rgba(56, 189, 248, 0.2); }
+        /* Premium Colors */
+        :root {
+            --gold: #D4AF37;
+            --dark-surface: #1a1a1a;
+            --text-light: #e0e0e0;
+            --text-muted: #888888;
         }
-
-        .animate-fade-in {
-            animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            opacity: 0;
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
 
         /* Navbar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            background-color: rgba(13, 13, 13, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 28px;
             font-weight: 700;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav ul li a {
-            color: var(--text-primary);
+        nav a {
+            color: var(--text-light);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            transition: color 0.3s;
+            margin: 0 20px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
-        nav ul li a:hover {
-            color: var(--accent-glow);
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .cart-btn {
+            padding: 10px 24px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .cart-btn:hover {
+            background: var(--gold);
+            color: #000;
         }
 
         /* Hero Section */
-        header {
+        .hero {
             height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1414235077428-338988a2e8c0?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
             padding: 0 20px;
-            position: relative;
         }
 
-        .hero-badge {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-glow);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
+        .hero-content h1 {
+            font-size: 64px;
             margin-bottom: 20px;
-            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #ffffff;
+            font-weight: 400;
+            letter-spacing: 2px;
         }
 
-        header h1 {
-            font-size: 4rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        header h1 span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
             max-width: 600px;
-            margin-bottom: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
         }
 
         .cta-btn {
-            padding: 15px 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #fff;
-            background: var(--accent-gradient);
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
+            padding: 16px 40px;
+            background-color: var(--gold);
+            color: #000;
             text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            animation: glowPulse 3s infinite;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .cta-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
         }
 
-        /* Container & Sections */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 100px 20px;
+        /* Menu Section */
+        .menu-section {
+            padding: 100px 5%;
+            background-color: #0d0d0d;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
             text-align: center;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent-gradient);
-            border-radius: 2px;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-
-        .skill-card {
-            background: var(--card-bg);
-            padding: 30px 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.3s, background 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-            background: rgba(30, 41, 59, 0.8);
-            border-color: rgba(56, 189, 248, 0.3);
-        }
-
-        .skill-card i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--accent-glow);
-        }
-
-        /* Projects & Experience */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.02);
-            border-color: rgba(129, 140, 248, 0.3);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--accent-gradient);
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .card h4 {
-            font-size: 1rem;
-            color: var(--accent-glow);
+            font-size: 42px;
+            color: var(--gold);
             margin-bottom: 15px;
             font-weight: 400;
         }
 
-        .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 60px;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .tech-stack {
+        .menu-grid {
             display: flex;
-            gap: 10px;
             flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
         }
 
-        .tech-stack span {
-            background: rgba(255,255,255,0.05);
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: #cbd5e1;
-            border: 1px solid rgba(255,255,255,0.1);
+        .menu-card {
+            background-color: var(--dark-surface);
+            width: 100%;
+            max-width: 350px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.4s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+        }
+
+        .price {
+            font-size: 20px;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        .add-btn {
+            background: transparent;
+            color: var(--text-light);
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .add-btn:hover {
+            color: var(--gold);
         }
 
         /* Footer */
         footer {
+            background-color: #050505;
             text-align: center;
-            padding: 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 50px;
-            color: var(--text-secondary);
+            padding: 50px 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
         }
 
-        .social-links {
-            margin-top: 20px;
+        .footer-logo {
+            font-size: 24px;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
         }
 
-        .social-links a {
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: color 0.3s;
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 12px;
+            letter-spacing: 1px;
         }
 
-        .social-links a:hover {
-            color: var(--accent-glow);
-        }
-
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            nav { padding: 20px; flex-direction: column; gap: 15px; }
-            .card { padding: 25px; }
+            nav {
+                display: none; /* Simplification for mobile */
+            }
+            .hero-content h1 {
+                font-size: 42px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Nancy</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-        </ul>
-    </nav>
-
-    <header id="home">
-        <div class="hero-badge animate-fade-in">GTU 8th Semester IT Student | Ahmedabad</div>
-        <h1 class="animate-fade-in delay-1">Hi, I'm <span>Nancy</span></h1>
-        <p class="animate-fade-in delay-2">An aspiring Cloud & DevOps Engineer building robust architectures, automating CI/CD pipelines.</p>
-        <a href="#projects" class="cta-btn animate-fade-in delay-3">View My Work <i class="fas fa-arrow-down" style="margin-left: 8px;"></i></a>
+    <header>
+        <div class="logo">Lumière</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#menu">The Collection</a>
+            <a href="#about">Our Story</a>
+            <a href="#contact">Reservations</a>
+        </nav>
+        <button class="cart-btn">Cart (0)</button>
     </header>
 
-    <section id="skills" class="container">
-        <h2 class="section-title">Core Competencies</h2>
-        <div class="skills-grid">
-            <div class="skill-card animate-fade-in">
-                <i class="fab fa-linux"></i>
-                <h3>Linux</h3>
-            </div>
-            <div class="skill-card animate-fade-in delay-1">
-                <i class="fab fa-aws"></i>
-                <h3>AWS Cloud</h3>
-            </div>
-            <div class="skill-card animate-fade-in delay-2">
-                <i class="fab fa-docker"></i>
-                <h3>Docker</h3>
-            </div>
-            <div class="skill-card animate-fade-in delay-3">
-                <i class="fab fa-jenkins"></i>
-                <h3>Jenkins</h3>
-            </div>
-            <div class="skill-card animate-fade-in delay-3">
-                <i class="fab fa-python"></i>
-                <h3>Python</h3>
-            </div>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Elevated Dining, Delivered.</h1>
+            <p>Experience the pinnacle of culinary artistry from the comfort of your home. Exquisite flavors, curated by master chefs, delivered with uncompromising elegance.</p>
+            <button class="cta-btn" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">Explore the Menu</button>
         </div>
     </section>
 
-    <section id="experience" class="container">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="timeline">
-            <div class="card animate-fade-in">
-                <h3>Cloud & Automation Intern</h3>
-                <h4>DevOps TechLab | Jan 2026 - Apr 2026</h4>
-                <p>Worked hands-on with enterprise-grade infrastructure. Managed Linux servers, optimized AWS resources (EC2, S3, IAM, VPC), and implemented foundational automation scripts to streamline deployment processes.</p>
-                <div class="tech-stack">
-                    <span>Linux (CentOS)</span>
-                    <span>AWS</span>
-                    <span>Shell Scripting</span>
-                </div>
-            </div>
-            
-            <div class="card animate-fade-in delay-1">
-                <h3>Technical Intern</h3>
-                <h4>SKILLfied Mentor | Jan 2026 - Mar 2026</h4>
-                <p>Collaborated on frontend and application logic. Built interactive analytical dashboards and deployed project clones, ensuring smooth integration between application tiers.</p>
-                <div class="tech-stack">
-                    <span>React</span>
-                    <span>App Deployment</span>
-                    <span>Agile</span>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="menu" class="menu-section">
+        <h2 class="section-title">A Taste of Perfection</h2>
+        <div class="section-subtitle">Curated Masterpieces</div>
 
-    <section id="projects" class="container">
-        <h2 class="section-title">Key Projects</h2>
-        <div class="timeline">
-            <div class="card animate-fade-in">
-                <h3>3-Tier Architecture in Cloud</h3>
-                <h4>Final Year Project</h4>
-                <p>Architected and deployed a highly available 3-tier application on AWS. Containerized the web, application, and database layers using Docker. Configured secure VPC networking, load balancing, and ensured persistent data storage, showcasing a production-ready cloud environment.</p>
-                <div class="tech-stack">
-                    <span>AWS VPC/EC2</span>
-                    <span>Docker Compose</span>
-                    <span>Node.js/Python</span>
-                    <span>Nginx</span>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=600&auto=format&fit=crop" alt="Premium Steak" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Wagyu Ribeye</h3>
+                    <p class="card-desc">A5 grade Japanese Wagyu, pan-seared with truffle butter, accompanied by wild mushrooms and a red wine reduction.</p>
+                    <div class="card-footer">
+                        <span class="price">$125.00</span>
+                        <button class="add-btn">+ Add to order</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="card animate-fade-in delay-1">
-                <h3>Python CI/CD Automation Pipeline</h3>
-                <h4>DevOps Initiative</h4>
-                <p>Designed a continuous integration and deployment pipeline for a Python-based backend application. Integrated GitHub webhooks with Jenkins to automatically trigger builds, scan code, build fresh Docker images, and cleanly replace old containers without downtime.</p>
-                <div class="tech-stack">
-                    <span>Python</span>
-                    <span>Jenkins</span>
-                    <span>Docker</span>
-                    <span>GitHub Webhooks</span>
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=600&auto=format&fit=crop" alt="Sushi Platter" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Omakase Selection</h3>
+                    <p class="card-desc">Chef's daily selection of premium sashimi and nigiri, flown in fresh daily from Tsukiji market.</p>
+                    <div class="card-footer">
+                        <span class="price">$85.00</span>
+                        <button class="add-btn">+ Add to order</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c8d9efa1?q=80&w=600&auto=format&fit=crop" alt="Luxury Dessert" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Golden Truffle Dome</h3>
+                    <p class="card-desc">Valrhona dark chocolate mousse center, edible 24k gold leaf, resting on a toasted hazelnut praline base.</p>
+                    <div class="card-footer">
+                        <span class="price">$45.00</span>
+                        <button class="add-btn">+ Add to order</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <h2>Let's Connect</h2>
-        <p>Ready to deploy awesome things together.</p>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p style="margin-top: 30px; font-size: 0.8rem;">© 2026 Nancy. Designed & Coded with <i class="fas fa-heart" style="color: #ef4444;"></i></p>
+        <div class="footer-logo">LUMIÈRE</div>
+        <p class="footer-text">&copy; 2026 Lumière Culinary Group. All rights reserved.</p>
     </footer>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        });
-
-        document.querySelectorAll('.animate-fade-in').forEach((el) => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
